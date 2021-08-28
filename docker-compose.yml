@@ -1,0 +1,14 @@
+version: '3.8'
+services:
+  app:
+    build: .
+    command: node src/server.js
+    volumes:
+      - .:/app/
+      - /app/node_modules
+    ports:
+      - "8080:80"
+    environment:
+      PORT: 80
+  database:
+    image: redis
